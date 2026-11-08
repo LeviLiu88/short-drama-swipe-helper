@@ -6,7 +6,7 @@
 
 **当前版本为实验性预览版 1.0.2，仅适配红果短剧。** 蓝果等其他应用需要单独适配。1.0.2 已通过规则回归测试和模拟器手势测试，真实红果广告的修复效果仍待真机复测。
 
-[下载安装包](https://github.com/liufengqq/short-drama-swipe-helper/releases/latest) · [反馈问题](https://github.com/liufengqq/short-drama-swipe-helper/issues) · [MIT License](LICENSE)
+[下载安装包](https://github.com/liufengqq/short-drama-swipe-helper/releases) · [反馈问题](https://github.com/liufengqq/short-drama-swipe-helper/issues) · [MIT License](LICENSE)
 
 ## 工作方式
 
