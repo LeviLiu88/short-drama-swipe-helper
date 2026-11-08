@@ -4,9 +4,9 @@
 
 一个使用 Android 无障碍服务识别短剧广告提示、自动执行向上滑动的开源工具。界面和识别逻辑均在本机运行，最低支持 Android 9。
 
-**当前版本为实验性预览版 1.0.2，仅适配红果短剧。** 蓝果等其他应用需要单独适配。1.0.2 已通过规则回归测试和模拟器手势测试，真实红果广告的修复效果仍待真机复测。
+**当前正式版本为 1.0.2，目前适配红果短剧。** 作者已反馈真机测试可以使用。蓝果等其他应用需要单独适配。
 
-[下载安装包](https://github.com/liufengqq/short-drama-swipe-helper/releases) · [反馈问题](https://github.com/liufengqq/short-drama-swipe-helper/issues) · [MIT License](LICENSE)
+[下载安卓安装包 APK](https://github.com/liufengqq/short-drama-swipe-helper/releases/download/v1.0.2/short-drama-swipe-helper-1.0.2.apk) · [反馈问题](https://github.com/liufengqq/short-drama-swipe-helper/issues) · [MIT License](LICENSE)
 
 ## 界面截图
 
@@ -51,7 +51,11 @@
 
 从下方版本发布页下载 APK，在手机上安装后打开助手。
 
-[下载 1.0.2 预览版](https://github.com/liufengqq/short-drama-swipe-helper/releases/tag/v1.0.2)
+[点击下载 short-drama-swipe-helper-1.0.2.apk](https://github.com/liufengqq/short-drama-swipe-helper/releases/download/v1.0.2/short-drama-swipe-helper-1.0.2.apk)
+
+**手机安装请选择以 `.apk` 结尾的文件 `short-drama-swipe-helper-1.0.2.apk`。** 在安卓手机上打开该文件并按系统提示安装，完成后打开“短剧滑动助手”。
+
+`-source.zip`、`Source code (zip)` 和 `Source code (tar.gz)` 是供开发者查看的源码；`SHA256.txt` 用于核对下载文件。
 
 点击“打开无障碍设置”，在系统的“已安装的应用”或“已下载的应用”中找到“短剧滑动助手”，阅读系统提示后自行启用。若系统拒绝授权，按应用内“查看授权问题指引”操作，具体入口取决于手机系统。
 
@@ -110,7 +114,7 @@ Android 13 及以上版本可能对侧载应用访问无障碍等敏感能力增
 | 源码压缩包独立构建 | 已通过 |
 | 模拟器覆盖安装、授权入口和两项自动手势测试 | 已通过 |
 | 1.0.1 真实红果广告识别 | 收到未触发反馈 |
-| 1.0.2 按用户录屏修复后的真实广告效果 | 待真机复测 |
+| 1.0.2 真实红果广告识别 | 作者反馈真机测试可以使用 |
 | 各品牌设备与其他短剧应用 | 待验证 / 待适配 |
 
 模拟测试不能覆盖目标应用在真机上是否提供无障碍文字，以及所有广告样式和系统安全策略。
