@@ -1,0 +1,62 @@
+import local.hongguo.adhelper.AdSignals;
+
+public final class AdSignalsTest {
+    public static void main(String[] args) {
+        AdSignals s = new AdSignals();
+        s.accept("广告", true, false);
+        assert s.ad && !s.canTryDirectSwipe() && s.seconds() == null;
+        s.accept("5 秒后可跳过", false, false);
+        assert s.seconds() == 5 && !s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("广告·", true, false);
+        s.accept("倒计时", false, false);
+        s.accept("12", true, false);
+        assert s.ad && s.seconds() == 12 && !s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("广告", false, false);
+        s.accept("剩余 00:09", false, false);
+        assert s.seconds() == 9;
+        s = new AdSignals();
+        s.accept("跳过：8", false, false);
+        assert s.seconds() == 8;
+        s = new AdSignals();
+        s.accept("广告", true, false);
+        s.accept("8", false, true);
+        assert s.seconds() == 8 && !s.canTryDirectSwipe();
+        s.accept("123秒的精彩人生", false, false);
+        assert s.seconds() == 8;
+        s = new AdSignals();
+        s.accept("广告", true, false);
+        s.accept("跳过", true, false);
+        s.accept("10", true, false);
+        s.accept("5", true, false);
+        assert s.seconds() == null && !s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("这是一个广告公司的故事", true, false);
+        assert !s.ad;
+        s.accept("本集还有30秒", false, false);
+        assert s.seconds() == null && !s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("广告 | ···", true, false);
+        s.accept("优惠券00:29:53后失效", true, false);
+        s.accept("观看40s后可多领100金币", true, false);
+        s.accept("8秒后可继续上滑观看短剧", true, false);
+        assert s.seconds() == 8 && !s.ready() && !s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("观看40s后可多领100金币", true, false);
+        s.accept("上滑继续观看短剧⌃", true, false);
+        assert s.ad && s.ready() && s.seconds() == null && s.canTryDirectSwipe();
+        s = new AdSignals();
+        s.accept("1秒后可继续", true, false);
+        s.accept("上滑观看短剧", true, false);
+        assert !s.ready();
+        s = new AdSignals();
+        s.accept("观看40s后可多领100金币 8秒后可继续上滑观看短剧", true, false);
+        assert s.seconds() == 8 && !s.ready();
+        s = new AdSignals();
+        s.accept("观看40s后可多领100金币", true, false);
+        s.accept("优惠券00:29:53后失效", true, false);
+        assert s.seconds() == null && !s.ready();
+        System.out.println("Ad text parsing regression checks passed.");
+    }
+}

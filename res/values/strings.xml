@@ -1,0 +1,3 @@
+<resources>
+    <string name="service_description">仅在红果前台页面和内置测试页，读取广告标识与倒计时，确认结束后执行一次向上滑动。可在应用主界面暂停。本应用不申请联网权限。</string>
+</resources>
